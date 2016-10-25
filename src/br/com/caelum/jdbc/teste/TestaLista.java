@@ -1,13 +1,15 @@
 package br.com.caelum.jdbc.teste;
 
+import java.text.ParseException;
 import java.util.List;
 
 import br.com.caelum.jdbc.dao.ContatoDao;
 import br.com.caelum.jdbc.modelo.Contato;
+import br.com.caelum.jdbc.util.FormataData;
 
 public class TestaLista {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ParseException{
 		//criando contatoDAo
 		ContatoDao dao = new ContatoDao();
 		
@@ -19,7 +21,8 @@ public class TestaLista {
 			System.out.println("Nome: "+ contato.getNome());
 			System.out.println("Email: "+ contato.getEmail());
 			System.out.println("Endereço: "+ contato.getEndereco());
-			System.out.println("Data Nascimento: "+ contato.getDataNascimento().getTime() + "\n");
+			System.out.println("Data Nascimento: "+
+					FormataData.formatada(contato.getDataNascimento().getTime()) + "\n");
 		}
 
 	}
